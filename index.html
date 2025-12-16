@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>凯司令官方小程序门店核心操作指南</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF7A00',
+                        secondary: '#4CAF50',
+                        light: '#FFF8F0',
+                        dark: '#5D4037'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-shadow {
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            }
+            .step-number {
+                @apply flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white font-bold text-lg;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light text-dark">
+    <!-- 顶部导航 -->
+    <header class="top-0 bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-1xl font-bold text-primary">
+                <img src="images/1928.png" alt="凯司令官方小程序门店" class="inline-block mr-2" style="width: auto; height: 24px; object-fit: contain;">凯司令官方小程序门店核心操作指南
+            </h1>
+
+        </div>
+    </header>
+
+    <!-- 主横幅 -->
+    <section class="bg-gradient-to-r from-primary/90 to-primary text-white py-12 md:py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-shadow">一看就懂！一步一步跟着做</h2>
+            <p class="text-xl md:text-2xl">轻松搞定门店操作，让生意更顺畅</p>
+            <!-- <div class="mt-8 inline-block bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full">
+                <i class="fa fa-star text-yellow-300 animate-pulse"></i>
+                <i class="fa fa-star text-yellow-300 animate-pulse" style="animation-delay: 0.2s"></i>
+                <i class="fa fa-star text-yellow-300 animate-pulse" style="animation-delay: 0.4s"></i>
+            </div> -->
+        </div>
+    </section>
+
+    <main class="container mx-auto px-4 py-12">
+        <!-- 准备工作 -->
+        <section class="mb-16 scroll-mt-24" id="preparation">
+            <div class="flex items-center mb-8">
+                <div class="step-number mr-4">1</div>
+                <h2 class="text-3xl font-bold text-dark">准备工作：先装两个必备APP</h2>
+            </div>
+            
+            <div class="bg-white rounded-xl p-6 card-shadow">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="flex items-start p-4 border border-gray-100 rounded-lg hover:border-primary/30 transition">
+                        <div class="bg-secondary/10 p-3 rounded-lg mr-4">
+                            <i class="fa fa-shopping-cart text-2xl text-secondary"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">有赞门店</h3>
+                            <p class="text-gray-600">核心操作都在这个APP里，日常管理全靠它</p>
+                            <p class="text-gray-600 mt-2">
+                                网页版登录地址：<a href="https://account.youzan.com/login" target="_blank" class="text-primary hover:underline">https://account.youzan.com/login</a>
+                            </p>
+                        </div>
+                    </div>
+                     <div class="flex items-start p-4 border border-gray-100 rounded-lg hover:border-primary/30 transition">
+                        <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                            <i class="fa fa-wifi text-2xl text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">飞蛾wifi配置</h3>
+                            <p class="text-gray-600">用来让小票打印机连上网，能正常打印小票</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-100">
+                    <div class="flex items-start">
+                        <i class="fa fa-info-circle text-blue-500 mt-1 mr-3 text-xl"></i>
+                        <p>两个APP都安装好后，记得登录自己有赞门店的账号，保持网络畅通</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 插画区域 -->
+            <div class="mt-8 bg-white p-4 rounded-xl card-shadow">
+                <div class="flex flex-col items-center">
+                    <div class="w-full max-w-md flex justify-around py-4">
+                        <div class="flex flex-col items-center">
+                            <div class="w-20 h-20 bg-gray-100 rounded-lg flex items-center justify-center mb-2">
+                                <img src="images/1.png" alt="有赞门店" class="max-w-full max-h-full">
+                            </div>
+                            <span class="text-sm font-medium">有赞门店</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-20 h-20 bg-gray-100 rounded-lg flex items-center justify-center mb-2">
+                                <img src="images/2.png" alt="飞蛾wifi配置" class="max-w-full max-h-full">
+                            </div>
+                            <span class="text-sm font-medium">飞蛾wifi配置</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 日常操作 -->
+        <section class="mb-16 scroll-mt-24" id="daily">
+            <div class="flex items-center mb-8">
+                <div class="step-number mr-4">2</div>
+                <h2 class="text-3xl font-bold text-dark">日常操作：每天必做的关键步骤</h2>
+            </div>
+            
+
+            
+            <!-- 订单核销 -->
+            <div class="mb-10">
+                <h3 class="text-2xl font-semibold mb-4 text-primary">（一）自提订单核销：给客人交货前必做</h3>
+                <div class="bg-white rounded-xl p-6 card-shadow">
+                    <div class="mb-6">
+                        <p class="text-lg font-medium mb-2">先核销再交货！</p>
+                        <p class="text-red-600 font-bold text-lg flex items-center">
+                            <i class="fa fa-exclamation-circle mr-2"></i>
+                            <span class="bg-red-50 px-3 py-1 rounded-md">一定要扫客人订单"核销码"，别扫成优惠券码啦</span>
+                        </p>
+                    </div>
+                    
+                    <div class="p-4 bg-amber-50 rounded-lg border border-amber-100 mb-4">
+                        <h4 class="font-medium text-amber-800 mb-2">忘核销了怎么办？</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-700">
+                            <li>找到对应的订单，点下面的"发货"按钮</li>
+                            <li>选"无需提货码验证"</li>
+                            <li>点一下就完成补核销，库存就对啦</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <!-- 核销操作插画 -->
+                <div class="mt-6 bg-white p-4 rounded-xl card-shadow">
+                    <div class="flex flex-col md:flex-row items-center justify-around py-4">
+                        <div class="text-center mb-4 md:mb-0">
+                            <div class="w-24 h-24 bg-gray-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
+                                <i class="fa fa-qrcode text-4xl text-gray-600"></i>
+                            </div>
+                            <span class="text-sm">1. 扫描订单核销码</span>
+                        </div>
+                        <div class="text-primary text-2xl">
+                            <i class="fa fa-long-arrow-right"></i>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-24 h-24 bg-gray-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
+                                <i class="fa fa-handshake-o text-4xl text-gray-600"></i>
+                            </div>
+                            <span class="text-sm">2. 给客人交货</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 配送怎么弄 -->
+            <div class="mb-10">
+                <h3 class="text-2xl font-semibold mb-4 text-primary">（二）配送怎么弄？</h3>
+                <div class="bg-white rounded-xl p-6 card-shadow">
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fa fa-truck text-green-600 mt-1 mr-3"></i>
+                            <p>系统会提前45分钟呼叫快递，如果门店自己送，在快递联系前取消呼叫，点"发货"，选"商家自配送"</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-exclamation-triangle text-amber-500 mt-1 mr-3"></i>
+                            <p>快超时了还没快递接单：跟客人好好说，要么门店帮叫快递，要么门店自己送</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 配送费设置说明 -->
+            <div class="mb-10">
+                <!-- <h3 class="text-2xl font-semibold mb-4 text-primary">（三）配送费设置说明</h3> -->
+                <div class="bg-white rounded-xl p-6 card-shadow">
+                    <div class="mb-6">
+                        <h4 class="text-lg font-medium mb-3">同城配送收费标准（对客人收取部分）</h4>
+                        <p class="mb-3 text-gray-700">当前使用：<span class="font-medium text-primary">按距离收取配送费，起送价 39 元/单</span></p>
+                        <p class="text-sm text-gray-600 mb-4">注：因考虑实际送货路况，配送费计算按步行距离，非地图直线距离。</p>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                            <div class="flex items-center mb-3">
+                                <span class="w-32 text-gray-700">基础配送费：</span>
+                                <span class="font-medium">4.00 元</span>
+                            </div>
+                            <div class="flex flex-wrap items-center mb-3">
+                                <span class="w-32 text-gray-700">超额计费：</span>
+                                <span class="font-medium">超过 3.000 km，每增加 1.000 km，配送费增加 1.50 元</span>
+                            </div>
+                        </div>
+                    </div>
+                                 
+                    <div class="mb-6">
+                        <h4 class="text-lg font-medium mb-3">续重收费</h4>
+                        <p class="text-gray-700 mb-2">商品重量 5.000 kg 内不额外收费，每超出 1 kg 额外收取 2.00 元。</p>
+                        <!-- <p class="text-xs text-gray-500">说明：1. 最终费用 = 收费标准 + 续重收费(数值为0时表示不使用续重收费)。</p>
+                        <p class="text-xs text-gray-500">2. 需要对续重收费的商品开启该功能，并设置商品重量。</p> -->
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-medium mb-3">品类加价</h4>
+                        <div class="bg-gray-50 p-4 rounded-lg mb-3">
+                            <div class="flex items-center">
+                                <span class="text-gray-700">订单中包含 </span>
+                                <span class="mx-2 px-3 py-1 bg-white border border-gray-200 rounded">蛋糕类</span>
+                                <span class="text-gray-700">，配送费 </span>
+                                <span class="mx-2 px-3 py-1 bg-white border border-gray-200 rounded">增加</span>
+                                <span class="text-gray-700"> ¥</span>
+                                <span class="mx-2 px-3 py-1 bg-white border border-gray-200 rounded">11.00</span>
+                            </div>
+                        </div>
+                        <!-- <p class="text-xs text-gray-500">说明：配送费=基础配送费+续重收费+品类加价；如果品类加价设置配送费减少，当计算结果出现小于0时，则配送费为0。</p> -->
+                    </div>
+                </div>
+            </div>
+
+            
+            <!-- 下单和库存 -->
+            <div class="mb-10">
+                <h3 class="text-2xl font-semibold mb-4 text-primary">（三）下单和库存：不用瞎忙活，记住这几点</h3>
+                <div class="bg-white rounded-xl p-6 card-shadow">
+                    <div class="mb-6">
+                        <h4 class="text-lg font-medium mb-2">下单时间</h4>
+                        <p class="text-gray-600">小程序24小时都能让客人下单，不用手动上下架商品</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-medium mb-2">库存怎么设？</h4>
+                        <div class="grid md:grid-cols-2 gap-4 mt-3">
+                            <div class="p-3 border border-gray-100 rounded-lg">
+                                <p class="font-medium">现货库存（当日可售卖库存）</p>
+                                <p class="text-gray-600 text-sm">有多少货就填多少，和店里实际库存保持一致,当现货库存销售完，自动切换到预售</p>
+                            </div>
+                            <div class="p-3 border border-gray-100 rounded-lg">
+                                <p class="font-medium">计划库存（预售库存）</p>
+                                <p class="text-gray-600 text-sm">系统自动设好9999，不用改，保证能让客人预订就行（一定确保有计划库存，要不然客人就预订不了）</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-medium mb-2">预售商品下单规则</h4>
+                        <div class="space-y-3 mt-2">
+                            <div class="flex items-center p-2 bg-blue-50 rounded">
+                                <i class="fa fa-clock-o text-blue-500 mr-3"></i>
+                                <p><span class="font-medium">17:00前下单：</span>客人能选"明天到7天内"的货</p>
+                            </div>
+                            <div class="flex items-center p-2 bg-blue-50 rounded">
+                                <i class="fa fa-clock-o text-blue-500 mr-3"></i>
+                                <p><span class="font-medium">17:00后下单：</span>客人能选"后天到7天内"的货</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 库存设置插画 -->
+                <div class="mt-6 bg-white p-4 rounded-xl card-shadow">
+                    <div class="flex flex-col md:flex-row items-center justify-around py-4">
+                        <div class="text-center mb-4 md:mb-0">
+                            <div class="w-24 h-24 bg-gray-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
+                                <i class="fa fa-cubes text-4xl text-gray-600"></i>
+                            </div>
+                            <span class="text-sm">现货库存</span>
+                            <p class="text-xs text-gray-500">有多少货就填多少，和店里实际库存保持一致</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-24 h-24 bg-gray-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
+                                <i class="fa fa-calendar-check-o text-4xl text-gray-600"></i>
+                            </div>
+                            <span class="text-sm">计划库存（预售库存）</span>
+                            <p class="text-xs text-gray-500">确保有计划库存</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 闭店前3件事 -->
+            <div class="mb-10">
+                <h3 class="text-2xl font-semibold mb-4 text-primary">（四）闭店前3件事：一定要查！</h3>
+                <div class="bg-white rounded-xl p-6 card-shadow">
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="bg-primary/10 step-number mr-4 flex-shrink-0">1</div>
+                            <div>
+                                <h4 class="text-lg font-medium mb-1">未核销订单</h4>
+                                <p class="text-gray-600">看看有没有客人付了钱，还没扫码核销的或忘记核销的，赶紧补上</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="bg-red-100 step-number text-red-700 mr-4 flex-shrink-0 animate-pulse">2</div>
+                            <div>
+                                <h4 class="text-lg font-bold mb-1 text-red-700">⚠️ 退款申请 - 非常重要 ⚠️</h4>
+                                <p class="text-red-600 font-medium">有没有客人要退款的，核实一下进度，按流程处理，必须当日处理完，否则被微信平台判罚.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="bg-primary/10 step-number mr-4 flex-shrink-0">3</div>
+                            <div>
+                                <h4 class="text-lg font-medium mb-1">同步数据</h4>
+                                <p class="text-gray-600 mb-2">点击"有赞下载"，把当天的销售数据传到收银系统，账才对得上</p>
+                                <div class="p-3 bg-blue-50 rounded-lg border border-blue-100">
+                                    <p class="text-blue-700 text-sm flex items-center">
+                                        <i class="fa fa-info-circle mr-2"></i>
+                                        重要提醒：小程序的订单，无需在收银机上做销售，闭店时会自动同步到收银系统（包括销售金额和扣减库存）
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 提现操作 -->
+            <div>
+                <h3 class="text-2xl font-semibold mb-4 text-primary">（五）提现操作：把钱转到银行卡</h3>
+                <div class="bg-white rounded-xl p-6 card-shadow">
+                    <p class="mb-4">按照以下步骤操作，轻松提现：</p>
+                    <div class="space-y-4">
+                        <div class="flex">
+                            <div class="bg-green-100 flex items-center justify-center w-8 h-8 rounded-full text-green-600 font-bold mr-3 flex-shrink-0">1</div>
+                            <p>打开有赞门店APP，找到"财务"</p>
+                        </div>
+                        <div class="flex">
+                            <div class="bg-green-100 flex items-center justify-center w-8 h-8 rounded-full text-green-600 font-bold mr-3 flex-shrink-0">2</div>
+                            <p>点"资金处理"，再点"提现"</p>
+                        </div>
+                        <div class="flex">
+                            <div class="bg-green-100 flex items-center justify-center w-8 h-8 rounded-full text-green-600 font-bold mr-3 flex-shrink-0">3</div>
+                            <p>可以加自己常用的银行卡，想提就提</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 特殊情况 -->
+        <section class="mb-16 scroll-mt-24" id="special">
+            <div class="flex items-center mb-8">
+                <div class="step-number mr-4">3</div>
+                <h2 class="text-3xl font-bold text-dark">特殊情况：遇到这些事别慌</h2>
+            </div>
+            
+            <!-- 客人退款后又想买 -->
+            <div class="mb-10">
+                <h3 class="text-2xl font-semibold mb-4 text-primary">（一）客人退款后又想买</h3>
+                <div class="bg-white rounded-xl p-6 card-shadow">
+                    <ol class="space-y-3 list-decimal pl-5">
+                        <li class="text-gray-700">让客人重新下单，按新订单正常交货</li>
+                        <li class="text-gray-700">要是客人用了优惠券，原订单还没核销：等退款完，优惠券会自动回来</li>
+                        <li class="text-gray-700">订单已经核销了：优惠券不会退哦，跟客人说清楚</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- 已核销的订单要退单 -->
+            <div class="mb-10">
+                <h3 class="text-2xl font-semibold mb-4 text-primary">（二）已核销的订单要退单</h3>
+                <div class="bg-white rounded-xl p-6 card-shadow">
+                    <ol class="space-y-3 list-decimal pl-5 mb-4">
+                        <li class="text-gray-700">只能店员在"有赞门店"APP里操作</li>
+                        <li class="text-gray-700">一定要选"退货退款"，别选别的</li>
+                        <li class="text-gray-700">客人自己在小程序提交了退款：
+                            <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-600">
+                                <li>先让客人取消退款申请</li>
+                                <li>店员再按上面的步骤选"退货退款"</li>
+                                <li>原因：客人自己选的话，只有仅退款</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                
+                <!-- 退款处理插画 -->
+                <div class="mt-6 bg-white p-4 rounded-xl card-shadow">
+                    <div class="flex flex-col items-center py-4">
+                        <div class="w-full max-w-md flex items-center justify-center">
+                            <div class="w-20 h-20 bg-gray-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fa fa-smile-o text-3xl text-gray-600"></i>
+                            </div>
+                            <div class="text-primary text-xl mx-2">
+                                <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                            <div class="w-20 h-20 bg-gray-100 rounded-lg flex items-center justify-center">
+                                <i class="fa fa-mobile text-3xl text-gray-600"></i>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-sm">微笑沟通 → 有赞门店操作</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 退货政策 -->
+            <div>
+                <h3 class="text-2xl font-semibold mb-4 text-primary">（三）退货政策：非常规尺寸预订单</h3>
+                <div class="bg-white rounded-xl p-6 card-shadow">
+                    <div class="mb-4 p-4 bg-blue-50 rounded-lg border border-blue-100">
+                        <p class="text-blue-700 font-medium flex items-center">
+                            <i class="fa fa-phone mr-2"></i>非常规尺寸预订单，先和客人电话沟通
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="p-4 bg-green-50 rounded-lg border border-green-100">
+                            <div class="flex items-start">
+                                <div class="bg-green-100 p-2 rounded-full mr-3 mt-1">
+                                    <i class="fa fa-check text-green-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium mb-2 text-green-700">收货日期前一天17点前：可以退换货</h4>
+                                    <p class="text-gray-700">客户可以在此时间之前申请退换货，并在系统中操作</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 bg-red-50 rounded-lg border border-red-100">
+                            <div class="flex items-start">
+                                <div class="bg-red-100 p-2 rounded-full mr-3 mt-1">
+                                    <i class="fa fa-times text-red-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium mb-2 text-red-700">17点后：不支持退换货</h4>
+                                    <p class="text-gray-700">超过此时间，门店将报货安排生产和配送，无法再处理退换货申请。请务必与客人解释清楚并提前做好沟通</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 退货政策插画 -->
+                <div class="mt-6 bg-white p-4 rounded-xl card-shadow">
+                    <div class="flex flex-col md:flex-row items-center justify-around py-4">
+                        <div class="text-center mb-4 md:mb-0">
+                            <div class="w-24 h-24 bg-blue-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
+                                <i class="fa fa-phone text-4xl text-blue-600"></i>
+                            </div>
+                            <span class="text-sm">提前沟通</span>
+                        </div>
+                        <div class="text-primary text-2xl">
+                            <i class="fa fa-long-arrow-right"></i>
+                        </div>
+                        <div class="text-center mb-4 md:mb-0">
+                            <div class="w-24 h-24 bg-green-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
+                                <i class="fa fa-clock-o text-4xl text-green-600"></i>
+                            </div>
+                            <span class="text-sm">收货日期前一天17点前：可以退换</span>
+                        </div>
+                        <div class="text-primary text-2xl">
+                            <i class="fa fa-long-arrow-right"></i>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-24 h-24 bg-red-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
+                                <i class="fa fa-ban text-4xl text-red-600"></i>
+                            </div>
+                            <span class="text-sm">收货日期前一天17点后：不支持</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 快递理赔操作指引 -->
+            <div class="mt-10">
+                <h3 class="text-2xl font-semibold mb-4 text-primary">（四）快递理赔操作指引</h3>
+                <div class="bg-white rounded-xl p-6 card-shadow space-y-8">
+                    
+                    <!-- 蜂鸟快递理赔 -->
+                    <div>
+                        <h4 class="text-xl font-semibold mb-3 flex items-center">
+                            <i class="fa fa-truck text-blue-600 mr-2"></i>蜂鸟快递理赔
+                        </h4>
+                        <div class="p-4 bg-blue-50 rounded-lg border border-blue-100 mb-4">
+                            <p class="text-blue-700 font-medium">使用有赞同城配-蜂鸟发货的订单出现破损等情况</p>
+                        </div>
+                        <div class="space-y-3">
+                            <p class="font-medium">理赔要求：需在发货后7天内联系有赞申请索赔</p>
+                            <p class="font-medium">需提供以下信息：</p>
+                            <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                                <li>有赞订单号：E开头（方便核实信息）</li>
+                                <li>蜂鸟服务商单号：1500开头，在“订单-物流详情”可找到</li>
+                                <li>索赔金额：需与订单商品金额一致</li>
+                                <li>商品破损照片：商品破损图片或商品丢失证明</li>
+                                <li>物品价值证明：包含成交金额的有赞订单截图</li>
+                                <li>订单退款截图：线上线下退款均需提供</li>
+                            </ul>
+                            <div class="mt-3 p-3 bg-amber-50 rounded-lg border border-amber-100">
+                                <p class="text-amber-700 text-sm">
+                                    <i class="fa fa-info-circle mr-2"></i>
+                                    由于该问题涉及蜂鸟处理，还请您耐心等待处理结果，一般情况下蜂鸟侧赔付完成后会在月底进行系统调账，您可以在资产-对账单明细查看“转账”类型来查看赔付到账情况。
+                                </p>
+                                <p class="text-amber-700 text-sm mt-1">
+                                    <i class="fa fa-exclamation-triangle mr-2"></i>
+                                    注：蜂鸟官网索赔需要是发货7天内的订单蜂鸟官网才可以申请，超过7天无法申请。
+                                </p>
+                            </div>
+                        </div>
+
+                                            <!-- 有赞客服联系方式 -->
+                    <div class="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-100">
+                        <h4 class="text-lg font-semibold mb-2 text-blue-700">有赞客服联系方式</h4>
+                        <p class="text-gray-700">有赞门店APP->店铺->我的客服->在线客服</p>
+                    </div>
+                    </div>
+                    
+                    <!-- 达达快递理赔 -->
+                    <div>
+                        <h4 class="text-xl font-semibold mb-3 flex items-center">
+                            <i class="fa fa-truck text-green-600 mr-2"></i>达达快递理赔
+                        </h4>
+                        <div class="p-4 bg-green-50 rounded-lg border border-green-100 mb-4">
+                            <p class="text-green-700 font-medium">达达目前赔付无线上流程</p>
+                        </div>
+                        <div class="space-y-3">
+                            <p class="font-medium">理赔方式：商家可自行联系达达客服4006615020</p>
+                            <p class="text-gray-700">客服仲裁确认后，会将索赔金额线下打款至商家支付宝或银行卡，无须有赞介入。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 顺丰快递理赔 -->
+                    <div>
+                        <h4 class="text-xl font-semibold mb-3 flex items-center">
+                            <i class="fa fa-truck text-red-600 mr-2"></i>顺丰快递理赔
+                        </h4>
+                        <div class="p-4 bg-red-50 rounded-lg border border-red-100 mb-4">
+                            <p class="text-red-700 font-medium">顺丰同城配送订单理赔</p>
+                        </div>
+                        <div class="space-y-3">
+                            <p class="font-medium">顺丰同城客服电话：9533868</p>
+                            <!-- <p class="text-gray-700">外部商户联系方式仅供参考，请以商户官方网站显示为准。</p> -->
+                            <p class="text-gray-700">顺丰同城官网：<a href="https://www.uupt.com/" target="_blank" class="text-primary hover:underline">https://www.uupt.com/</a></p>
+
+                        </div>
+                    </div>
+                    
+                    <!-- 闪送快递理赔 -->
+                    <div>
+                        <h4 class="text-xl font-semibold mb-3 flex items-center">
+                            <i class="fa fa-truck text-purple-600 mr-2"></i>闪送快递理赔
+                        </h4>
+                        <div class="p-4 bg-purple-50 rounded-lg border border-purple-100 mb-4">
+                            <p class="text-purple-700 font-medium">使用有赞同城配-闪送发货的订单出现破损</p>
+                        </div>
+                        <div class="space-y-3">
+                            <p class="font-medium">理赔要求：需在24小时内联系有赞申请索赔</p>
+                            <p class="font-medium">需提供以下信息：</p>
+                            <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                                <li>有赞订单号：E开头（方便核实信息）</li>
+                                <li>闪送服务单号：DH开头，在“订单-物流详情”可找到</li>
+                                <li>索赔金额：需与订单商品金额一致</li>
+                                <li>商品破损照片：商品破损图片or商品丢失证明</li>
+                                <li>物品价值证明：包含成交金额的有赞订单截图</li>
+                                <li>收款方式：支付宝</li>
+                                <li>收款账号：支付账号</li>
+                                <li>收款账号姓名：支付宝真实姓名</li>
+                                <li>身份证照片：正反面照片（仅额外增购保价的订单需要）</li>
+                            </ul>
+                            <div class="mt-3 p-3 bg-amber-50 rounded-lg border border-amber-100">
+                                <p class="text-amber-700 text-sm">
+                                    <i class="fa fa-exclamation-triangle mr-2"></i>
+                                    注意：如遇非工作日或订单超过24小时，您需自行联系闪送客服处理（闪送热线：400-612-6688）
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 有赞客服联系方式 -->
+                    <div class="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-100">
+                        <h4 class="text-lg font-semibold mb-2 text-blue-700">有赞客服联系方式</h4>
+                        <p class="text-gray-700">有赞门店APP->店铺->我的客服->在线客服</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 必记提醒 -->
+        <section class="mb-16 scroll-mt-24" id="reminder">
+            <div class="flex items-center mb-8">
+                <div class="step-number mr-4">4</div>
+                <h2 class="text-3xl font-bold text-dark">必记提醒：这3点一定要注意</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl p-6 card-shadow border-t-4 border-primary">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-primary/10 p-2 rounded-full mr-3">
+                            <i class="fa fa-check-circle text-xl text-primary"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold">库存准确</h3>
+                    </div>
+                    <p class="text-gray-600">现货库存要填准，别让客人买了没货，造成不必要的麻烦。计划库存要有，别让客人不能预订。</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 card-shadow border-t-4 border-primary">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-primary/10 p-2 rounded-full mr-3">
+                            <i class="fa fa-check-circle text-xl text-primary"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold">耐心沟通</h3>
+                    </div>
+                    <p class="text-gray-600">跟客人说话要耐心，尤其是退款、用优惠券的时候，慢慢解释清楚</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 card-shadow border-t-4 border-primary">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-primary/10 p-2 rounded-full mr-3">
+                            <i class="fa fa-check-circle text-xl text-primary"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold">每日核查</h3>
+                    </div>
+                    <p class="text-gray-600">每天闭店前的核查不能少，该退的退，该补的补，有问题赶紧处理</p>
+                </div>
+            </div>
+            
+            <!-- 重点提醒插画 -->
+            <div class="mt-8 bg-amber-50 rounded-xl p-6 border border-amber-100">
+                <div class="flex justify-center items-center space-x-4">
+                    <div class="text-amber-500 text-3xl animate-pulse">
+                        <i class="fa fa-exclamation-circle"></i>
+                    </div>
+                    <div class="text-amber-500 text-3xl animate-pulse" style="animation-delay: 0.2s">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="text-amber-500 text-3xl animate-pulse" style="animation-delay: 0.4s">
+                        <i class="fa fa-exclamation-circle"></i>
+                    </div>
+                </div>
+                <p class="text-center mt-4 text-amber-800 font-medium">以上三点非常重要，请务必牢记！</p>
+            </div>
+        </section>
+
+
+       <!-- 会员权益 -->
+        <section class="scroll-mt-24" id="membership">
+            <div class="flex items-center mb-8">
+                <div class="step-number mr-4">5</div>
+                <h2 class="text-3xl font-bold text-dark">会员权益：促进客人复购的好方法</h2>
+            </div>
+            
+            <div class="bg-white rounded-xl p-6 card-shadow mb-8">
+                <div class="mb-6">
+                    <h3 class="text-2xl font-semibold mb-4 text-primary flex items-center">
+                        <i class="fa fa-gift text-primary mr-2"></i>注册会员即送优惠券
+                    </h3>
+                    
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="p-4 bg-primary/5 rounded-lg border border-primary/20 text-center">
+                            <p class="text-lg font-bold text-primary mb-1">满15减5</p>
+                            <p class="text-sm text-gray-600">有效期：一个月</p>
+                        </div>
+                        <div class="p-4 bg-primary/5 rounded-lg border border-primary/20 text-center">
+                            <p class="text-lg font-bold text-primary mb-1">满30减5</p>
+                            <p class="text-sm text-gray-600">有效期：一个月</p>
+                        </div>
+                        <div class="p-4 bg-primary/5 rounded-lg border border-primary/20 text-center">
+                            <p class="text-lg font-bold text-primary mb-1">满100减10</p>
+                            <p class="text-sm text-gray-600">有效期：一个月</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 p-3 bg-amber-50 rounded-lg border border-amber-100 inline-block">
+                        <i class="fa fa-info-circle text-amber-500 mr-1"></i>
+                        <span class="text-sm text-amber-800">优惠券不可叠加使用</span>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-primary flex items-center">
+                        <i class="fa fa-birthday-cake text-primary mr-2"></i>会员生日专属福利
+                    </h3>
+                    
+                    <div class="p-4 bg-pink-50 rounded-lg border border-pink-100">
+                        <div class="flex items-start">
+                            <div class="bg-pink-100 p-3 rounded-full mr-4 mt-1">
+                                <i class="fa fa-ticket text-2xl text-pink-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2 text-pink-700">满100减20 蛋糕券</h4>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li class="flex items-center">
+                                        <i class="fa fa-calendar-check-o text-pink-500 mr-2"></i>
+                                        <span>有效期：一个月</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fa fa-clock-o text-pink-500 mr-2"></i>
+                                        <span>发放时间：会员生日前7日自动发送</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fa fa-mobile text-pink-500 mr-2"></i>
+                                        <span>通知方式：自动发送到会员账户并短信提醒</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 会员权益插画 -->
+            <div class="bg-white p-4 rounded-xl card-shadow">
+                <div class="flex flex-col md:flex-row items-center justify-around py-6">
+                    <div class="text-center mb-6 md:mb-0">
+                        <div class="w-28 h-28 bg-primary/10 rounded-full flex items-center justify-center mb-3 mx-auto">
+                            <i class="fa fa-ticket text-5xl text-primary"></i>
+                        </div>
+                        <h4 class="font-semibold mb-1">新会员礼包</h4>
+                        <p class="text-sm text-gray-600">注册即享三重优惠</p>
+                    </div>
+                    <div class="text-primary text-3xl hidden md:block">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-28 h-28 bg-pink-100 rounded-full flex items-center justify-center mb-3 mx-auto">
+                            <i class="fa fa-birthday-cake text-5xl text-pink-500"></i>
+                        </div>
+                        <h4 class="font-semibold mb-1">生日特别福利</h4>
+                        <p class="text-sm text-gray-600">专属蛋糕优惠券</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+
+    <!-- 回到顶部按钮 -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 transition-opacity duration-300">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // 回到顶部按钮
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0');
+                backToTopButton.classList.add('opacity-100');
+            } else {
+                backToTopButton.classList.remove('opacity-100');
+                backToTopButton.classList.add('opacity-0');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

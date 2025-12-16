@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>凯司令售后退款重要通知</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        /* 自定义动画效果 */
+        @keyframes pulse-warning {
+            0%, 100% { border-color: #f59e0b; background-color: #fffbeb; }
+            50% { border-color: #d97706; background-color: #fef3c7; }
+        }
+        .animate-pulse-warning {
+            animation: pulse-warning 2s infinite;
+        }
+        
+        /* 手指点击动画 */
+        @keyframes tap {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.7; }
+        }
+        .pointer-animation {
+            animation: tap 1.5s infinite;
+        }
+        .mt-55 {
+            margin-top: 195px;
+        }
+
+        .mt-155 {
+            margin-top: -90px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden border-4 border-amber-500 animate-pulse-warning">
+        <!-- 头部警示栏 -->
+        <div class="bg-amber-500 text-white p-4 flex items-center justify-center">
+            <i class="fa fa-exclamation-triangle text-3xl mr-3 animate-bounce"></i>
+            <h1 class="text-2xl font-bold tracking-wider">重要通知</h1>
+        </div>
+        
+        <!-- 通知内容区 -->
+        <div class="p-6 md:p-8">
+            <div class="mb-6 text-center">
+                <p class="text-lg md:text-xl text-gray-700 font-medium">各位店长：</p>
+                <p class="text-base md:text-lg text-gray-600 mt-2">凯司令官方小程序售后操作须知</p>
+            </div>
+            
+            <!-- 核心警示模块 -->
+            <div class="bg-red-50 border-l-4 border-red-500 p-5 rounded-r-lg mb-6">
+                <div class="flex items-start">
+                    <i class="fa fa-warning text-red-500 text-2xl mt-1 mr-3"></i>
+                    <div>
+                        <h2 class="text-xl md:text-2xl font-bold text-red-600 mb-2">
+                            ⚠️ 售后退款申请 - 非常重要 ⚠️
+                        </h2>
+                        <ul class="list-disc list-inside text-gray-800 space-y-3 text-base md:text-lg">
+                            <li>请核查是否有客人提交退款申请</li>
+                            <li>及时跟进退款进度，严格按既定流程处理</li>
+                            <li class="font-extrabold text-red-700 text-lg md:text-xl">
+                                <i class="fa fa-clock-o mr-2"></i>必须当日处理完毕！
+                            </li>
+                            <li class="text-red-600 font-semibold">
+                                <i class="fa fa-exclamation-circle mr-2"></i>逾期未处理将被微信平台判罚
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 操作提醒 -->
+            <div class="bg-blue-50 border border-blue-200 p-4 rounded-lg">
+                <div class="flex items-center mb-2">
+                    <i class="fa fa-info-circle text-blue-500 text-xl mr-2"></i>
+                    <h3 class="text-lg font-semibold text-blue-800">操作提醒</h3>
+                </div>
+                <p class="text-gray-700 pl-6">请各位店长务必重视退款处理时效，及时登录有赞门店-售后维权核查相关申请，避免因超时处理导致平台处罚。</p>
+                <!-- <p class="text-gray-700 pl-6 mt-2">收到客户的退款小票，及时按退款流程操作退款。</p> -->
+            </div>
+            
+            <!-- 售后维权图片及动画 -->
+            <div class="mt-8">
+                <h3 class="text-lg font-semibold text-gray-800 mb-3">操作指引：点击售后维权</h3>
+                <div class="relative w-full max-w-lg mx-auto">
+                    <img src="images/3.png" alt="售后维权界面" class="w-full h-auto rounded-lg shadow-md">
+                    <!-- 手指点击动画 -->
+                    <div class="pointer-animation absolute top-1/4 right-1/4 transform -translate-x-1/2 -translate-y-1/2 mt-55">
+                        <i class="fa fa-hand-pointer-o text-red-500 text-4xl"></i>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-center mt-2">请点击图中'售后维权'位置进行操作</p>
+            </div>
+            
+            <!-- 待商家处理图片及动画 -->
+            <div class="mt-10">
+                <h3 class="text-lg font-semibold text-gray-800 mb-3">操作指引：点击待商家处理</h3>
+                <div class="relative w-full max-w-lg mx-auto">
+                    <img src="images/4.png" alt="待商家处理界面" class="w-full h-auto rounded-lg shadow-md">
+                    <!-- 手指点击动画 -->
+                    <div class="pointer-animation absolute top-1/4 left-1/3 transform -translate-x-1/2 -translate-y-1/2 mt-155">
+                        <i class="fa fa-hand-pointer-o text-red-500 text-4xl"></i>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-center mt-2">请点击图中'待商家处理'位置进行操作</p>
+            </div>
+        </div>
+        
+        <!-- 底部标识 -->
+        <div class="bg-gray-100 p-3 text-center text-gray-500 text-sm">
+            <p>凯司令市场部 · 2025年11月24日通知</p>
+        </div>
+    </div>
+
+    <!-- 悬浮提醒（移动端） -->
+    <div class="fixed bottom-4 left-4 right-4 md:hidden">
+        <div class="bg-red-600 text-white text-center py-2 px-4 rounded-lg shadow-lg">
+            <p class="font-bold"><i class="fa fa-bell mr-1"></i> 当日退款必须处理完毕！</p>
+        </div>
+    </div>
+</body>
+</html>

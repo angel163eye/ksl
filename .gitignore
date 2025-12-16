@@ -1,0 +1,23 @@
+# IDE相关
+.trae/
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# 系统文件
+Thumbs.db
+.DS_Store
+
+# 编译产物
+*.class
+*.jar
+*.war
+
+# 日志文件
+*.log
+
+# 临时文件
+*.tmp
+*.temp
