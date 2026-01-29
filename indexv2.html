@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>凯司令×张智棟 艺术家系列</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700;900&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #F5F1E8; /* 宣纸色 */
+            --ink-color: #3E2723; /* 水墨黑褐 */
+            --ink-light: #5D4037;
+            --accent-red: #B71C1C; /* 印章红 */
+            --accent-gold: #A1887F;
+            --text-body: #4E342E;
+            --primary: #8B5CF6;
+            --secondary: #F9A8D4;
+            --cta: #CA8A04;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        .poster-container {
+            width: 720px;
+            height: 960px;
+            background-color: var(--bg-color);
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* 顶部区域 */
+        .top-section {
+            flex: 1;
+            padding: 45px 40px 30px 40px;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 左侧区域 */
+        .left-col {
+            width: 42%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding-right: 20px;
+        }
+
+        .portrait-frame {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            border: 3px solid var(--ink-light);
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(62, 39, 35, 0.2);
+            position: relative;
+            background: #fff;
+            margin-bottom: 18px;
+        }
+
+        .portrait-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* 艺术家简介区域 */
+        .artist-bio {
+            width: 100%;
+            text-align: left;
+            padding: 16px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 12px;
+            border: 1px solid rgba(161, 136, 127, 0.3);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .bio-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 16px;
+            color: var(--ink-color);
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--accent-gold);
+            text-align: center;
+        }
+
+        .bio-name {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 22px;
+            color: var(--ink-color);
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .bio-titles {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-size: 11px;
+            color: var(--text-body);
+            line-height: 1.5;
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        .bio-content {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-size: 11px;
+            color: var(--text-body);
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        /* 右侧区域 */
+        .right-col {
+            width: 58%;
+            padding-left: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .main-title-group {
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 12px;
+            position: relative;
+        }
+
+        .title-small {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 14px;
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            line-height: 1.4;
+        }
+
+        .title-large {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 56px;
+            color: var(--ink-color);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: 2px;
+            background: linear-gradient(45deg, var(--ink-color) 30%, #6d4c41 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .content-text {
+            font-family: 'Noto Serif SC', serif;
+            color: var(--text-body);
+            line-height: 1.6;
+            font-size: 14px;
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 12px;
+            border-left: 4px solid var(--accent-red);
+            margin-bottom: 16px;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-text {
+            color: var(--ink-light);
+            font-weight: bold;
+        }
+
+        .artist-note {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px dashed rgba(161, 136, 127, 0.4);
+            font-family: 'Noto Sans SC', sans-serif;
+            color: var(--text-body);
+            line-height: 1.6;
+            font-size: 13px;
+            text-align: justify;
+        }
+
+        .artist-note p {
+            margin-bottom: 10px;
+        }
+
+        /* 装饰线条 */
+        .deco-line {
+            position: absolute;
+            left: 40px;
+            top: 15px;
+            right: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+            opacity: 0.5;
+        }
+
+        /* 底部画作区域 */
+        .bottom-section {
+            height: 380px;
+            width: 100%;
+            position: relative;
+            margin-top: auto; /* Push to bottom */
+        }
+
+        .art-img-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .art-img-layer {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+            object-position: center;
+            z-index: 1;
+        }
+
+        /* 遮罩层，使用多重渐变实现更平滑的过渡 */
+        .art-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            /* 使用更复杂的多重渐变实现自然渐进效果 */
+            background: linear-gradient(
+                to bottom,
+                var(--bg-color) 0%,
+                rgba(245, 241, 232, 0.95) 5%,
+                rgba(245, 241, 232, 0.85) 10%,
+                rgba(245, 241, 232, 0.7) 15%,
+                rgba(245, 241, 232, 0.55) 20%,
+                rgba(245, 241, 232, 0.4) 25%,
+                rgba(245, 241, 232, 0.3) 30%,
+                rgba(245, 241, 232, 0.2) 35%,
+                rgba(245, 241, 232, 0.1) 40%,
+                rgba(245, 241, 232, 0.05) 50%,
+                transparent 65%
+            );
+        }
+
+        /* 底部文字水印 */
+        .bottom-watermark {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 80px;
+            color: rgba(62, 39, 35, 0.05);
+            z-index: 3;
+        }
+
+        .brand-tag {
+            display: inline-block;
+            background-color: var(--ink-color);
+            color: #fff;
+            padding: 4px 10px;
+            font-size: 11px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        /* CTA 按钮 */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--cta);
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 6px;
+            text-decoration: none;
+            text-align: center;
+            margin-top: 16px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="poster-container">
+        <!-- 顶部线条装饰 -->
+        <div class="deco-line"></div>
+
+        <!-- 上半部分：左侧肖像与简介，右侧文字信息 -->
+        <div class="top-section">
+            <!-- 左栏：肖像与艺术家简介 -->
+            <div class="left-col">
+                <div class="portrait-frame">
+                    <img src="https://t1.chatglm.cn/file/697abb91a33c08b0a92b1cc0.jpg?expired_at=1770083757&sign=0a8a6d512c29f0433b8d9857f387b2bc&ext=jpg" alt="张智棟肖像" class="portrait-img">
+                </div>
+                
+                <!-- 艺术家简介 -->
+                <div class="artist-bio">
+                    <div class="bio-title">作者艺术简介</div>
+                    <div class="bio-name">张智棟</div>
+                    <div class="bio-titles">
+                        中国美术家协会 会员<br>
+                        中国民主同盟中央美术院 理事<br>
+                        中国民主同盟上海市委员会 委员<br>
+                        上海民盟书画院 副院长<br>
+                        上海市政协书画院特聘画师<br>
+                        上海市美术家协会连环画年画艺委会 委员<br>
+                        民盟上海美术工作者联合总支部委员会主委<br>
+                        喜满华夏(上海)文创研究院 院长
+                    </div>
+                    <div class="bio-content">
+                        张智棟先生是当代著名中国水墨人物画艺术家、从事美术教育近三十年、中国人物画(上海)创作沙龙创始导师、历任第十一、第十二、第十三届上海美术大展作品评审委员会评委。从事中国人物画艺术创作四十余年，艺术作品多次入选中国美术家协会主办的国家级美展和上海市美术家协会主办的海派艺术作品展并获奖。他的骏马题材作品在北京保利、翰海、上海朵云轩等知名拍卖机构成功拍卖。作品深受国内外众多藏家的喜爱并先后被新加坡、马来西亚、印尼、日本、香港、美国、澳大利亚、英国、德国、法国等艺术机构及个人收藏。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右栏：联名标题与介绍文字 -->
+            <div class="right-col">
+                <div class="main-title-group">
+                    <div class="brand-tag">艺术家联名系列</div>
+                    <div class="title-small">凯司令 × 张智棟</div>
+                    <div class="title-large">艺马当先</div>
+                </div>
+
+                <div class="content-text">
+                    <div class="highlight-box">
+                        <span class="highlight-text">一心一 “艺”</span>，以匠心巧思续写百年风华<br>
+                        <span class="highlight-text">一念一韵</span>，以龙马精神唤醒海派记忆
+                    </div>
+                    
+                    <p>凯司令携手著名书画家张智棟，跨界联袂呈献<span style="color: var(--accent-red); font-weight: bold;">马年限定艺术蛋糕</span>。</p>
+                    <p style="margin-top: 8px;">
+                        将海派甜点的醇厚底蕴与书画艺术的灵动感完美融合。不只是经典，更是镌刻着东方美学的文化载体。
+                    </p>
+                    <p style="margin-top: 8px;">
+                        当百年非遗技艺碰撞水墨丹青的雅致韵味，舌尖的香甜与眼底的艺术就此相逢。在艺术与甜点邂逅的空间里，让匠心沉淀经典，每一口都是海派风情与东方雅韵的双重盛宴。
+                    </p>
+
+                    <div class="artist-note">
+                        <p>张智棟先生数十载扎根生活，曾无数次深入内蒙古草原与天山牧场，于晨光暮霭中静观马群。</p>
+                        <p>他以水墨的干湿浓淡、笔触的疾徐转折，去捕捉马儿驰骋如风、静立如山的生命动态。</p>
+                        <p>其作品不仅是对自然生灵的虔诚礼赞，亦蕴含禅意与时代气象的交融。</p>
+                    </div>
+
+                    <!-- CTA 按钮 -->
+                   
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部：水墨骏马图 -->
+        <!-- <div class="bottom-section">
+            <div class="bottom-watermark">Kaissiling</div>
+            <div class="art-img-container">
+                <img src="https://t1.chatglm.cn/file/697abb82f065a3478a44070c.jpg?expired_at=1770083757&sign=4f5264e2f07958931ec2f90748027466&ext=jpg" alt="水墨骏马" class="art-img-layer">
+                <div class="art-overlay"></div>
+            </div>
+        </div> -->
+    </div>
+
+</body>
+</html>
